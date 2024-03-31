@@ -1,0 +1,103 @@
+@import '../../css-config/mixins.scss';
+
+.main-header {
+  width: 100%;
+  padding: 0 2rem;
+  background-color: #212121;
+  color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 99;
+  @include md {
+    padding: 0 40px;
+  }
+  .header-content {
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    max-width: 120rem;
+    margin: 0 auto;
+    @include md {
+      height: 8rem;
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      @include md {
+        font-size: 3.4rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .nav-links {
+      list-style: none;
+      justify-content: space-between;
+      gap: 2.5rem;
+      display: none;
+      @include md {
+        display: flex;
+        font-size: 2rem;
+      }
+      li {
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        @include md {
+          font-size: 2rem;
+        }
+      }
+    }
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      @include md {
+        gap: 3.5rem;
+      }
+      svg {
+        font-size: 2rem;
+        cursor: pointer;
+        @include md {
+          font-size: 3.4rem;
+        }
+      }
+      .cart-icon {
+        position: relative;
+        span {
+          position: absolute;
+          min-width: 1.8rem;
+          background-color: #8e2de2;
+          padding: 0.25rem;
+          top: -0.5rem;
+          right: -1.2rem;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          line-height: 1;
+        }
+      }
+    }
+  }
+  &.sticky-header {
+    position: sticky;
+    top: 0;
+    transform: translateY(-80px);
+    animation: stickyHeader 0.3s ease forwards;
+  }
+}
+
+@keyframes stickyHeader {
+  0% {
+    transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
